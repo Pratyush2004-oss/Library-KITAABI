@@ -9,26 +9,26 @@ export const SignupUser = async (req, res) => {
         const { fullname, AadharNumber, email, Mobile, City, Password, ConfirmPassword } = req.body;
         // Checking whether the password matches or not
         if (Password !== ConfirmPassword) {
-            return res.status(400).json({ message: "Passwords do not match" });
+            return res.status(400).json({ error: "Passwords do not match" });
         }
 
         // Checking if the user is already registered or not
         let Read = await Reader.findOne({ email });
         if (Read) {
-            return res.status(409).json({
-                message: "Email already in use.",
+            return res.status(400).json({
+                error: "Email already in use.",
             });
         }
         Read = await Reader.findOne({ Mobile });
         if (Read) {
-            return res.status(409).json({
-                message: "Mobile Number already in use.",
+            return res.status(400).json({
+                error: "Mobile Number already in use.",
             });
         }
         Read = await Reader.findOne({ AadharNumber });
         if (Read) {
-            return res.status(409).json({
-                message: "Aadhar Number already in use.",
+            return res.status(400).json({
+                error: "Aadhar Number already in use.",
             });
         }
 
@@ -86,17 +86,17 @@ export const SignupDistributor = async (req, res) => {
         const { LibraryName, email, Mobile, Address, City, Password, ConfirmPassword } = req.body;
         // chaecking whether the password is right or wrong
         if (Password !== ConfirmPassword) {
-            return res.status(400).json({ message: "Passwords do not match!....." });
+            return res.status(400).json({ error: "Passwords do not match!....." });
         }
 
         // Checking if the user is already registered or not
         let Distribute = await Distributor.findOne({ email });
         if (Distribute) {
-            return res.status(409).json({ message: "Email already in use!....." });
+            return res.status(409).json({ error: "Email already in use!....." });
         }
         Distribute = await Distributor.findOne({ Mobile });
         if (Distribute) {
-            return res.status(409).json({ message: "Mobile Number already in use!....." });
+            return res.status(409).json({ error: "Mobile Number already in use!....." });
         }
 
         // Setting Login type to Distributor
@@ -160,7 +160,7 @@ export const loginUser = async (req, res) => {
             const reader = await Reader.findOne({ email });
             const isPasswordCorrect = await bcrypt.compare(Password, reader.Password || "");
             if (!reader || !isPasswordCorrect) {
-                return res.status(401).json({ message: 'Invalid Credentials' });
+                return res.status(401).json({ error: 'Invalid Credentials' });
             }
             // generating Cookie or token
             generatetikenandSetCookie(reader._id, res);
