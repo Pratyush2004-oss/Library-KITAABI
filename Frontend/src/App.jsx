@@ -14,25 +14,25 @@ function App() {
   const { authUser } = useAuthContext();
 
   return (
-    <>
-    <div className='h-screen'>
+    <div>
     <Navbar />
-        <Routes>
+    <div className='h-screen'>
+    <Routes>
           <Route path='/' element={authUser ? ((authUser.LoginType === "Reader") ? <Navigate to={'/HomeReader'} /> : <Navigate to={"/HomeDistributor"} />)  : <HomePage/>} />
           <Route path='/HomeReader' element={authUser ? ((authUser.LoginType === "Reader") ? <HomePageReader /> : <Navigate to={"/HomeDistributor"} />) : <Navigate to={"/"} />} />
           <Route path='/HomeDistributor' element={authUser ? ((authUser.LoginType === "Distributor") ? <HomePageDistributor /> : <Navigate to={"/HomeReader"} />) : <Navigate to={'/'} />} ></Route>
-        </Routes>
-        <div className='Registrationbody py-10 flex items-center w-screen justify-center'>
-          <Routes>
-            <Route path="/registerReader" element={authUser ? ((authUser.LoginType === "Reader") ? <Navigate to={'/HomeReader'} /> : <SignupReader />) : <SignupReader />} />
-            <Route path="/registerDistributor" element={authUser ? ((authUser.LoginType === "Distributor") ? <Navigate to={'/HomeDistributor'} /> : <SignupDistributor />) : <SignupDistributor />} />
-            <Route path="/Login" element={authUser ? ((authUser.LoginType === "Reader") ? <Navigate to={'/HomeReader'} /> : <Navigate to={"/HomeDistributor"} />) : <Login />} />
           </Routes>
-          <Toaster />
+        <div className={`Registrationbody flex items-center w-screen justify-center ${(!authUser) ? "py-10" : ""}`}>
+        <Routes>
+        <Route path="/registerReader" element={authUser ? ((authUser.LoginType === "Reader") ? <Navigate to={'/HomeReader'} /> : <SignupReader />) : <SignupReader />} />
+        <Route path="/registerDistributor" element={authUser ? ((authUser.LoginType === "Distributor") ? <Navigate to={'/HomeDistributor'} /> : <SignupDistributor />) : <SignupDistributor />} />
+        <Route path="/Login" element={authUser ? ((authUser.LoginType === "Reader") ? <Navigate to={'/HomeReader'} /> : <Navigate to={"/HomeDistributor"} />) : <Login />} />
+        </Routes>
+        <Toaster />
+        </div>
         </div>
       </div>
-    </>
-  )
+        )
 }
 
 export default App

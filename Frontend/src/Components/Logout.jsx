@@ -5,7 +5,7 @@ const Logout = () => {
     const {loding,logout} = useLogout();
 
   return (
-    <>
+    <div className='flex justify-end flex-1 px-3'>
     {!loding ? (
         <button className='text-xl text-blue-200 label-base flex gap-3 label-text'
         onClick={logout}
@@ -15,7 +15,7 @@ const Logout = () => {
     ):(
         <span className='loading loading-spinner'></span>
     )}
-    </>
+    </div>
   );
 };
 export default Logout
