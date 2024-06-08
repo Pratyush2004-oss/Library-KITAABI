@@ -2,7 +2,7 @@ import BookModel from "../Models/RegisteredBooks.model.js";
 
 export const registerBooks = async (req, res) => {
     try {
-        const { title, author, publication, discription } = req.body;
+        const { title, author, publication, description } = req.body;
         const LibraryId = req.distributor._id;
         const City = req.distributor.City;
         const LibraryName = req.distributor.LibraryName;
@@ -22,7 +22,7 @@ export const registerBooks = async (req, res) => {
                 title,
                 author,
                 publication,
-                discription,
+                description,
                 LibraryId,
                 City,
                 LibraryName,
@@ -36,14 +36,13 @@ export const registerBooks = async (req, res) => {
             }
         }
         else{
-            res.status(409).send('Same Books are available in the database...');
+            res.status(409).send('Books already available...');
         }
 
 
     } catch (error) {
         console.log("Error in Register Book Controller : ", error.message)
         res.status(500).json({ error: "Internal Server Error..... " });
-
     }
 }
 

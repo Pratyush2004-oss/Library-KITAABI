@@ -36,8 +36,7 @@ export const SignupUser = async (req, res) => {
         const LoginType = "Reader";
 
         // Setting ProfilePic for the Reader
-        const ProfilePic =
-            "https://toppng.com/uploads/preview/file-svg-profile-icon-vector-11562942678pprjdh47a8.png";
+        const ProfilePic = "https://www.seekpng.com/png/detail/41-410093_circled-user-icon-user-profile-icon-png.png";
 
         // Hashed Password Here
         const salt = await bcrypt.genSalt(10);

@@ -7,7 +7,6 @@
   margin: 0;
   box-sizing: border-box;
   overscroll-behavior: none;
-  overflow-x: hidden;
 }
 
 .Registrationbody{
@@ -33,6 +32,7 @@
 ::-webkit-scrollbar-thumb:hover{
   background: #242424;
 }
+
 
 
 /* Shanke animation on horizontal direction */

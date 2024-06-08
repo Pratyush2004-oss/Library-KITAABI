@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import toast from 'react-hot-toast';
 import { useAuthContext } from '../Context/AuthContext';
 
@@ -11,6 +11,7 @@ const useSignupDistributor = () => {
 
         const success = handleInputErrors({ LibraryName, email, Mobile, Address,  City, Password, ConfirmPassword })
         if (!success) return;
+        
         setLoading(true);
         try {
             const res = await fetch("/api/auth/signupDistributor", {
