@@ -17,9 +17,9 @@ const BooksRegistration = () => {
     }
 
     return (
-        <>
-            <div className='flex floe-col items-center justify-center min-w-96 mx-auto'>
-                <div className="w-full p-6 rounded-lg shadow-md bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-0">
+        <div className='bg-gray-800 z-0'>
+            <div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
+                <div className="w-full py-6 rounded-lg shadow-md bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-0">
                     <h1 className=' text-4xl font-semibold text-center text-gray-300 '> Register Your Books</h1>
                     <progress className="progress w-100 progress-success" value="100" max="100"></progress>
 
@@ -97,8 +97,9 @@ const BooksRegistration = () => {
                     </form>
                 </div>
             </div>
+            {/* Displaying the Books in form of table */}
             <DisplayBooks />
-        </>
+        </div>
     )
 }
 

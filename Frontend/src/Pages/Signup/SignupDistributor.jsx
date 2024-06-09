@@ -21,7 +21,7 @@ const SignupDistributor = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
-        <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-0 glass">
+        <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-0">
           <h1 className="text-4xl font-semibold text-center text-gray-300 border-spacing-y-32 p-3 mt-4">Register as Distributor</h1>
           <progress className="progress w-100 progress-info" value="100" max="100"></progress>
 

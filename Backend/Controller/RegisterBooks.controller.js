@@ -49,7 +49,7 @@ export const registerBooks = async (req, res) => {
 export const getBooks = async (req, res) =>{
     try {
         const LibraryId = req.distributor._id;
-        const books = await BookModel.find({LibraryId});
+        const books = await BookModel.find({LibraryId}).sort({createdAt:-1});
 
         if(!books){
             return res.status(200).json([],{msg:"No Books Found!...."});

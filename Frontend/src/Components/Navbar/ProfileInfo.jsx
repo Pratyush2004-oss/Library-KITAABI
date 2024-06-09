@@ -13,15 +13,16 @@ const ProfileInfo = () => {
       <div className="dropdown dropdown-hover dropdown-end flex-1">
         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
           <div className="w-20 rounded-full ring ring-white ring-offset-base-100 ring-offset-2">
-            <img alt="Tailwind CSS Navbar component" src={authUser.ProfilePic}  />
+            <img alt="Tailwind CSS Navbar component" src={authUser.ProfilePic} />
           </div>
           <div>
             <a>{(authUser.LoginType === "Reader") ? authUser.fullname : authUser.LibraryName}</a>
           </div>
         </div>
         <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
+          {(authUser.LoginType === "Distributor") ? <li><Link to={'/registerBooks'}>Register Your Books</Link></li> : <div></div>}
           <li><Link to={'/Account'}>Account Section</Link></li>
-          <li><Logout/></li>
+          <li><Logout /></li>
         </ul>
       </div>
     </div>
