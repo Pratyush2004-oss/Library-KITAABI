@@ -10,21 +10,23 @@ import { useAuthContext } from './Context/AuthContext'
 import HomePageReader from './Pages/Home/HomePageReader'
 import HomePageDistributor from './Pages/Home/HomePageDistributor'
 import BooksRegistration from './Pages/Books/BooksRegistration'
+import AccountInfo from './Pages/Home/AccountInfo'
 
 function App() {
   const { authUser } = useAuthContext();
 
   return (
     <div>
-      <Navbar />
-      <div className='h-screen'>
+    <div className='h-screen'>
+    <Navbar />
         <Routes>
           <Route path='/' element={authUser ? ((authUser.LoginType === "Reader") ? <Navigate to={'/HomeReader'} /> : <Navigate to={"/HomeDistributor"} />) : <HomePage />} />
           <Route path='/HomeReader' element={authUser ? ((authUser.LoginType === "Reader") ? <HomePageReader /> : <Navigate to={"/HomeDistributor"} />) : <Navigate to={"/"} />} />
           <Route path='/HomeDistributor' element={authUser ? ((authUser.LoginType === "Distributor") ? <HomePageDistributor /> : <Navigate to={"/HomeReader"} />) : <Navigate to={'/'} />} ></Route>
           <Route path='/RegisterBooks' element={authUser ? ((authUser.LoginType === "Distributor") ? <BooksRegistration /> : <Navigate to={'/'} />) : <Navigate to={'/'} />} />
+          <Route path='/Account' element={authUser ?  <AccountInfo/> : <Navigate to={'/'}/> }/>
         </Routes>
-        <div className={`Registrationbody flex items-center w-screen justify-center ${(!authUser) ? "py-10" : ""}`}>
+        <div className={`flex items-center w-screen justify-center ${(!authUser) ? "py-10" : ""}`}>
           <Routes>
             <Route path="/registerReader" element={authUser ? ((authUser.LoginType === "Reader") ? <Navigate to={'/HomeReader'} /> : <SignupReader />) : <SignupReader />} />
             <Route path="/registerDistributor" element={authUser ? ((authUser.LoginType === "Distributor") ? <Navigate to={'/HomeDistributor'} /> : <SignupDistributor />) : <SignupDistributor />} />

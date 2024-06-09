@@ -9,10 +9,11 @@
   overscroll-behavior: none;
 }
 
-.Registrationbody{
-  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), url('/SignUpBackground.jpeg');
+body{
+  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('/bgimage2.jpeg');
   background-position: center;
-  background-repeat:repeat;
+  background-repeat:no-repeat;
+  background-size: cover;
 }
 
 ::-webkit-scrollbar{
@@ -22,8 +23,6 @@
   background: #121212;
   border-radius: 5px;
 }
-
-
 
 ::-webkit-scrollbar-track{
   background: #555;

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const LoginSignup = () => {
     return (
@@ -13,10 +14,10 @@ const LoginSignup = () => {
                 </div>
                 <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                     <li>
-                        <a className="justify-between">Login</a>
+                        <Link to={'/login'} className="justify-between">Login</Link>
                     </li>
-                    <li><a>Register as Reader</a></li>
-                    <li><a>Register as Distributor</a></li>
+                    <li><Link to={'/registerReader'}>Register as Reader</Link></li>
+                    <li><Link to={'/registerDistributor'}>Register as Distributor</Link></li>
                 </ul>
             </div>
         </>

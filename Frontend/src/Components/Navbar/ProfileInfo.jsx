@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAuthContext } from '../../Context/AuthContext';
-// import Logout from './Logout'
+import { Link } from 'react-router-dom';
+import Logout from '../Logout'
 
 const ProfileInfo = () => {
   const { authUser } = useAuthContext();
@@ -19,8 +20,8 @@ const ProfileInfo = () => {
           </div>
         </div>
         <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
-          <li><a>Account Section</a></li>
-          <li><a>Logout</a></li>
+          <li><Link to={'/Account'}>Account Section</Link></li>
+          <li><Logout/></li>
         </ul>
       </div>
     </div>

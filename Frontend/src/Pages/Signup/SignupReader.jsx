@@ -115,7 +115,7 @@ const SignupReader = () => {
                   </label>
                   <input
                     type="text"
-                    placeholder="Enter your mail id"
+                    placeholder="Enter your City"
                     className="input input-bordered input-info w-full max-w-xs"
                     value={inputs.City}
                     onChange={(e) => setInputs({ ...inputs, City: e.target.value })}
