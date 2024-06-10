@@ -4,10 +4,10 @@ const LibrariesDisplay = ({ Libraries }) => {
     return (
         <div>
             <div className="card card-side bg-base-100 m-5 shadow-xl">
-                <figure><img src={Libraries.ProfilePic} alt="" className=' h-80'/></figure>
+                <figure><img src={Libraries.ProfilePic} alt="" className=' h-80' /></figure>
                 <div className="card-body">
                     <h2 className="card-title font-bold text-2xl">{Libraries.LibraryName}</h2>
-                    <p>{ "Library Address : " + Libraries.Address}</p>
+                    <p>{"Library Address : " + Libraries.Address}</p>
                     <p>{"City : " + Libraries.City}</p>
                     <p>{"Contact Number : " + Libraries.Mobile}</p>
                     <p>{"Mail : " + Libraries.email}</p>

@@ -12,12 +12,12 @@ export const registerBooks = async (req, res) => {
         }
 
         // Checking whether the same books are available or tnot in the database
-        const booktitle = await BookModel.findOne({title});
-        const bookauthor = await BookModel.findOne({author});
-        const bookpublisher = await BookModel.findOne({publication});
-        const bookLibrary = await BookModel.findOne({LibraryId});
+        const booktitle = await BookModel.findOne({ title });
+        const bookauthor = await BookModel.findOne({ author });
+        const bookpublisher = await BookModel.findOne({ publication });
+        const bookLibrary = await BookModel.findOne({ LibraryId });
 
-        if(!booktitle || !bookauthor || !bookpublisher || !bookLibrary){
+        if (!booktitle || !bookauthor || !bookpublisher || !bookLibrary) {
             const newBook = new BookModel({
                 title,
                 author,
@@ -31,11 +31,11 @@ export const registerBooks = async (req, res) => {
             if (newBook) {
                 // Saving Book Data to the Database
                 await newBook.save();
-    
+
                 res.status(201).json({ newBook });
             }
         }
-        else{
+        else {
             res.status(409).send('Books already available...');
         }
 
@@ -46,19 +46,35 @@ export const registerBooks = async (req, res) => {
     }
 }
 
-export const getBooks = async (req, res) =>{
+export const getBooks = async (req, res) => {
     try {
         const LibraryId = req.distributor._id;
-        const books = await BookModel.find({LibraryId}).sort({createdAt:-1});
+        const books = await BookModel.find({ LibraryId }).sort({ createdAt: -1 });
 
-        if(!books){
-            return res.status(200).json([],{msg:"No Books Found!...."});
+        if (!books) {
+            return res.status(200).json([], { msg: "No Books Found!...." });
         }
-    
+
         res.status(200).json(books);
     } catch (error) {
-        console.log("Error in getBooks Controller : " , error.message);
-        res.status(500).json({error: "Internal Server Error....."});
+        console.log("Error in getBooks Controller : ", error.message);
+        res.status(500).json({ error: "Internal Server Error....." });
     }
 
+}
+
+export const getBooksForReader = async (req, res) => {
+    try {
+        const { id: LibrarytoGet } = req.params;
+        const LibraryBooks = await BookModel.find({LibraryId:LibrarytoGet},[]).sort({ createdAt: -1 });
+
+        // if there are no registered books in the library
+        if (!LibraryBooks) return res.status(200).json([]);
+
+        const Books = LibraryBooks
+        res.status(200).json(Books);
+    } catch (error) {
+        console.log("Error in getBooksforReader Controller : ", error.message);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
 }
