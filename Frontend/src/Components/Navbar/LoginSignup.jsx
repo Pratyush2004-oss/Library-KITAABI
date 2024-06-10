@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const LoginSignup = () => {
     return (
         <>
-            <div className="dropdown dropdown-end">
+            <div className="dropdown dropdown-hover dropdown-end">
                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                     <div className="rounded-full">
 

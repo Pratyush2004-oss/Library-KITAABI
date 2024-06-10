@@ -17,17 +17,17 @@ function App() {
 
   return (
     <div>
-    <div className=''>
-    <Navbar />
+      <div className=''>
+        <Navbar />
         <Routes>
-          <Route path='/' element={authUser ? ((authUser.LoginType === "Reader") ? <Navigate to={'/HomeReader'} /> : <Navigate to={"/HomeDistributor"} />) : <HomePage />} />
           <Route path='/HomeReader' element={authUser ? ((authUser.LoginType === "Reader") ? <HomePageReader /> : <Navigate to={"/HomeDistributor"} />) : <Navigate to={"/"} />} />
           <Route path='/HomeDistributor' element={authUser ? ((authUser.LoginType === "Distributor") ? <HomePageDistributor /> : <Navigate to={"/HomeReader"} />) : <Navigate to={'/'} />} ></Route>
           <Route path='/RegisterBooks' element={authUser ? ((authUser.LoginType === "Distributor") ? <BooksRegistration /> : <Navigate to={'/'} />) : <Navigate to={'/'} />} />
-          <Route path='/Account' element={authUser ?  <AccountInfo/> : <Navigate to={'/'}/> }/>
+          <Route path='/Account' element={authUser ? <AccountInfo /> : <Navigate to={'/'} />} />
         </Routes>
-        <div className={`flex items-center w-screen justify-center ${(!authUser) ? "py-10" : ""}`}>
+        <div className={`flex items-center w-screen justify-center ${(!authUser) ? "" : ""}`}>
           <Routes>
+            <Route path='/' element={authUser ? ((authUser.LoginType === "Reader") ? <Navigate to={'/HomeReader'} /> : <Navigate to={"/HomeDistributor"} />) : <HomePage />} />
             <Route path="/registerReader" element={authUser ? ((authUser.LoginType === "Reader") ? <Navigate to={'/HomeReader'} /> : <SignupReader />) : <SignupReader />} />
             <Route path="/registerDistributor" element={authUser ? ((authUser.LoginType === "Distributor") ? <Navigate to={'/HomeDistributor'} /> : <SignupDistributor />) : <SignupDistributor />} />
             <Route path="/Login" element={authUser ? ((authUser.LoginType === "Reader") ? <Navigate to={'/HomeReader'} /> : <Navigate to={"/HomeDistributor"} />) : <Login />} />
