@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import useGetBooks from '../../Hooks/useGetBooks'
 
 const DisplayBooks = () => {
-    const { Books } = useGetBooks();
+    const { Books, loadiing } = useGetBooks();
     return (
         <div className="overflow-x-auto h-96">
             <table className="table">
@@ -30,6 +30,7 @@ const DisplayBooks = () => {
                     })}
                 </tbody>
             </table>
+            {loadiing ? (<span className='loading loading-spinner mx-auto'></span>) : null}
         </div>
     )
 }

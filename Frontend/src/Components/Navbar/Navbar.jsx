@@ -15,7 +15,6 @@ const Navbar = () => {
                     <Link to={'/'} className=" font-bold btn btn-ghost text-white text-3xl">KITAABI</Link>
                 </div>
 
-                {/* Search Bar and account shown for only authenticated User  */}
                 {authUser ? <ProfileInfo/> : <LoginSignup/>}
             </div>
         </>
