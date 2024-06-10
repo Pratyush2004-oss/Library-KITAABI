@@ -8,7 +8,7 @@ const LibrariesDisplay = ({ Libraries }) => {
                 <div className="card-body">
                     <h2 className="card-title font-bold text-2xl">{Libraries.LibraryName}</h2>
                     <p>{ "Library Address : " + Libraries.Address}</p>
-                    <p>{"City" + Libraries.City}</p>
+                    <p>{"City : " + Libraries.City}</p>
                     <p>{"Contact Number : " + Libraries.Mobile}</p>
                     <p>{"Mail : " + Libraries.email}</p>
                     <div className="card-actions justify-end">

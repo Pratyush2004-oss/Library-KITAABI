@@ -20,8 +20,8 @@ const ProfileInfo = () => {
           <h1 className='text-lg text-center font-bold'>{(authUser.LoginType === "Reader") ? authUser.fullname : authUser.LibraryName}</h1>
         </div>
         <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
-          {(authUser.LoginType === "Distributor") ? <li><Link to={'/registerBooks'}>Register Your Books</Link></li> : <div></div>}
           <li><Link to={'/Account'}>Account Section</Link></li>
+          {(authUser.LoginType === "Distributor") ? <li><Link to={'/registerBooks'}>Register Your Books</Link></li> : <div></div>}
           <li><Logout /></li>
         </ul>
       </div>
