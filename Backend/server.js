@@ -8,6 +8,7 @@ import cookieParser from "cookie-parser";
 // importing user defined packages or files
 import authRoutes from "./Routes/auth.routes.js";
 import registeredBooks from "./Routes/registeredBooks.routes.js";
+import LibrariesRoute from "./Routes/Libraries.route.js"
 
 // VAriables Declared
 const app = express();
@@ -22,6 +23,7 @@ app.use(cookieParser()); // for handling cookies in middlewares
 
 app.use("/api/auth",authRoutes);
 app.use("/api/Books",registeredBooks);
+app.use("/api/Libraries",LibrariesRoute);
 
 
 
