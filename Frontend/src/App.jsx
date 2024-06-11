@@ -11,21 +11,23 @@ import HomePageReader from './Pages/Home/HomePageReader'
 import HomePageDistributor from './Pages/Home/HomePageDistributor'
 import BooksRegistration from './Pages/Books/BooksRegistration'
 import AccountInfo from './Pages/Home/AccountInfo'
+import BookInfoReader from './Components/Libraries/BookInfoReader'
 
 function App() {
   const { authUser } = useAuthContext();
 
   return (
     <div>
-      <div className=''>
+      <div className='h-screen'>
         <Navbar />
         <Routes>
           <Route path='/HomeReader' element={authUser ? ((authUser.LoginType === "Reader") ? <HomePageReader /> : <Navigate to={"/HomeDistributor"} />) : <Navigate to={"/"} />} />
           <Route path='/HomeDistributor' element={authUser ? ((authUser.LoginType === "Distributor") ? <HomePageDistributor /> : <Navigate to={"/HomeReader"} />) : <Navigate to={'/'} />} ></Route>
           <Route path='/RegisterBooks' element={authUser ? ((authUser.LoginType === "Distributor") ? <BooksRegistration /> : <Navigate to={'/'} />) : <Navigate to={'/'} />} />
           <Route path='/Account' element={authUser ? <AccountInfo /> : <Navigate to={'/'} />} />
+          <Route path='/GetBooksforReader' element={authUser? <BookInfoReader/> : <Navigate to={'/'}/>}/>
         </Routes>
-        <div className={`flex items-center w-screen justify-center ${(!authUser) ? "" : ""}`}>
+        <div className={`flex items-center w-screen justify-center ${(!authUser) ? "py-10" : ""}`}>
           <Routes>
             <Route path='/' element={authUser ? ((authUser.LoginType === "Reader") ? <Navigate to={'/HomeReader'} /> : <Navigate to={"/HomeDistributor"} />) : <HomePage />} />
             <Route path="/registerReader" element={authUser ? ((authUser.LoginType === "Reader") ? <Navigate to={'/HomeReader'} /> : <SignupReader />) : <SignupReader />} />
