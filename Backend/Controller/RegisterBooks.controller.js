@@ -24,7 +24,7 @@ export const registerBooks = async (req, res) => {
                 publication,
                 description,
                 LibraryId,
-                City,
+                City : City.toLowerCase(),
                 LibraryName,
                 Address
             })

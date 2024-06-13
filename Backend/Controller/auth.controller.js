@@ -47,7 +47,7 @@ export const SignupUser = async (req, res) => {
             AadharNumber,
             email,
             Mobile,
-            City,
+            City: City.toLowerCase(),
             LoginType,
             Password: hashedPassword,
             ProfilePic: ProfilePic,
@@ -114,7 +114,7 @@ export const SignupDistributor = async (req, res) => {
             email,
             Mobile,
             Address,
-            City,
+            City : City.toLowerCase(),
             Password: hashedPassword,
             LoginType,
             ProfilePic: ProfilePic
