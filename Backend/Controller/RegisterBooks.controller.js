@@ -24,7 +24,7 @@ export const registerBooks = async (req, res) => {
                 publication,
                 description,
                 LibraryId,
-                City : City.toLowerCase(),
+                City: City.toLowerCase(),
                 LibraryName,
                 Address
             })
@@ -66,7 +66,7 @@ export const getBooks = async (req, res) => {
 export const getBooksForReader = async (req, res) => {
     try {
         const { id: LibrarytoGet } = req.params;
-        const LibraryBooks = await BookModel.find({LibraryId:LibrarytoGet},[]).sort({ createdAt: -1 });
+        const LibraryBooks = await BookModel.find({ LibraryId: LibrarytoGet }, []).sort({ createdAt: -1 });
 
         // if there are no registered books in the library
         if (!LibraryBooks) return res.status(200).json([]);
@@ -78,3 +78,37 @@ export const getBooksForReader = async (req, res) => {
         res.status(500).json({ error: "Internal Server Error" });
     }
 }
+
+export const getBooksbyCityReader = async (req, res) => {
+    try {
+        const BookCity = req.Reader.City;
+        const Books = await BookModel.find({ City: BookCity }).sort({ LibraryName: 1 });
+
+        if (!Books) {
+            return res.status(200).json([], { message: "No Books found in your City" });
+        }
+        res.status(200).json(Books);
+    }
+    catch (error) {
+        console.log("Error in getBooksbyCityReader Controller : ", error.message);
+        res.status(500).json({ error: "Internal Server Error....." });
+    }
+}
+
+export const getBooksbyCityDistributor = async (req, res) => {
+    try {
+        const BookCity = req.distributor.City;
+        // const loggedinUser = req.distributor._id;
+        const Books = await BookModel.find({ City: BookCity }).sort({ LibraryName: 1 });
+
+        if (!Books) {
+            return res.status(200).json([], { message: "No Books found in your City" });
+        }
+        res.status(200).json(Books);
+    }
+    catch (error) {
+        console.log("Error in getBooksforDistributor Controller : ", error.message);
+        res.status(500).json({ error: "Internal Server Error....." });
+    }
+}
+

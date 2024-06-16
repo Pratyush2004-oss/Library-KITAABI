@@ -83,7 +83,7 @@ const BooksRegistration = () => {
                                     <textarea
                                         type="text"
                                         placeholder="Enter Description"
-                                        className="textarea textarea-bordered text-lg textarea-success w-full max-w-xs"
+                                        className="textarea textarea-bordered text-lg h-10 textarea-success w-full max-w-xs"
                                         value={inputs.description}
                                         onChange={(e) => setinputs({ ...inputs, description: e.target.value })}
                                         autoComplete="off" />

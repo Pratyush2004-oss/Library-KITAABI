@@ -13,7 +13,7 @@ const BookInfoReader = () => {
                 <progress className="progress w-100 progress-gray" value="100" max="100"></progress>
             </div>
             <div className='flex flex-wrap justify-evenly p-5 bg-gray-800'>
-                {selectedLibrary ?
+                {selectedLibrary &&
                     <>
                         {!loading && Books.length === 0 && (
                             <p className='text-center'>Library has not registered their Books..<br /> Wait for them to register the Books</p>
@@ -26,7 +26,7 @@ const BookInfoReader = () => {
                             />
                         ))}
                     </>
-                    : <h1>You have not selected any library</h1>}
+                }
             </div>
         </>
     )

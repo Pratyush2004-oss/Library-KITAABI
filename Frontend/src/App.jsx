@@ -13,6 +13,7 @@ import BooksRegistration from './Pages/Books/BooksRegistration'
 import AccountInfo from './Pages/Home/AccountInfo'
 import BookInfoReader from './Components/Libraries/BookInfoReader'
 import useLibrariesBooks from './Zustand/useLibrariesBooks'
+import SearchResult from './Components/Libraries/GetCityBooks'
 
 function App() {
   const { authUser } = useAuthContext();
@@ -28,6 +29,7 @@ function App() {
           <Route path='/RegisterBooks' element={authUser ? ((authUser.LoginType === "Distributor") ? <BooksRegistration /> : <Navigate to={'/'} />) : <Navigate to={'/'} />} />
           <Route path='/Account' element={authUser ? <AccountInfo /> : <Navigate to={'/'} />} />
           <Route path='/GetBooksforReader' element={authUser? ((selectedLibrary === null) ? <Navigate to={'/'}/> : <BookInfoReader/>) : <Navigate to={'/'}/>}/>
+          <Route path='/GetCityBooks' element={authUser? <SearchResult/> : <Navigate to={'/'}/>}/>
         </Routes>
         <div className={`flex items-center w-screen justify-center ${(!authUser) ? "py-10" : ""}`}>
           <Routes>
