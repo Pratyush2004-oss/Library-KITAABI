@@ -88,7 +88,7 @@ const AccountInfo = () => {
                 </label>
                 <label className="label ml-10 item-center flex p-2">
                   <span className=" text-2xl text-white label-base flex gap-3 label-text">
-                    {(authUser.LoginType === "Reader") ? authUser.City : authUser.City}
+                    {(authUser.LoginType === "Reader") ? authUser.City.charAt(0).toUpperCase() + authUser.City.slice(1) : authUser.City.charAt(0).toUpperCase() + authUser.City.slice(1)}
                   </span>
                 </label>
               </div>

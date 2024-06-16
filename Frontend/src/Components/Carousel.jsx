@@ -7,7 +7,7 @@ import slide5 from "/slider 5.png";
 
 const Carousel = () => {
     return (
-        <div className="carousel z-10 h-5/6 w-full">
+        <div className="carousel z-10 h-[650px] w-full">
             <div id="item1" className="carousel-item w-full">
                 <img src={slide1} className="w-full" />
             </div>

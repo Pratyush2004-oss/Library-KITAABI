@@ -3,7 +3,7 @@ import logo from "/Kitaabi Logo.jpg"
 
 const Footer = () => {
     return (
-        <footer className="footer z-0 items-center p-4 bg-neutral text-neutral-content">
+        <footer className="footer z-10 items-center border-t-4 fixed w-full bottom-0 left-0 p-2 bg-neutral glass text-neutral-content">
             <aside className="items-center p-1 grid-flow-col">
                 <img className='w-12 h-12 rounded-full ring ring-white' src={logo}></img>
                 <p className='p-2 text-lg font-semibold'>Copyright © 2024 - All right reserved</p>
