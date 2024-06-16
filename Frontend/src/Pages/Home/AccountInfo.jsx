@@ -28,7 +28,7 @@ const AccountInfo = () => {
                 </label>
               </div>
 
-              {/* Input Label for the E-mail area */}
+              {/* display area for the E-mail */}
               <div className="p-5 my-5">
                 <label className="label item-center flex p-2">
                   <span className=" text-3xl font-bold text-white label-base flex gap-3 label-text">
@@ -43,7 +43,7 @@ const AccountInfo = () => {
                 </label>
               </div>
 
-              {/* Input Label for the Mobile Number */}
+              {/* Display area for Mobile Number */}
               <div className="p-5 my-5">
                 <label className="label item-center flex p-2">
                   <span className=" text-3xl font-bold text-white label-base flex gap-3 label-text">
@@ -62,7 +62,7 @@ const AccountInfo = () => {
 
             <div className="col m-2">
 
-              {/* Input Label for the Address */}
+              {/* Display area for Aadhar Number or Address */}
               <div className="p-5 my-5">
                 <label className="label item-center flex p-2">
                   <span className=" text-3xl font-bold text-white label-base flex gap-3 label-text">
@@ -78,7 +78,7 @@ const AccountInfo = () => {
               </div>
 
 
-              {/* Input Label for the City */}
+              {/* Display area for City */}
               <div className="p-5 my-5">
                 <label className="label item-center flex p-2">
                   <span className=" text-3xl font-bold text-white label-base flex gap-3 label-text">
