@@ -17,7 +17,7 @@ const BooksRegistration = () => {
     }
 
     return (
-        <div className='bg-gray-800 z-0'>
+        <div className='bg-gray-800 h-screen z-0'>
             <div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
                 <div className="w-full py-6 rounded-lg shadow-md bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-0">
                     <h1 className=' text-4xl font-semibold text-center text-gray-300 '> Register Your Books</h1>
