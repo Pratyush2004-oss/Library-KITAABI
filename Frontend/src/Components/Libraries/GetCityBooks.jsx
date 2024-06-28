@@ -3,15 +3,25 @@ import BookSearch from './BookSeearch';
 import UseGetBooksForUsersCity from '../../Hooks/UseGetBooksForUsersCity';
 import { useAuthContext } from '../../Context/AuthContext';
 import SearchBar from '../Navbar/SearchBar';
+import toast from 'react-hot-toast';
 
 const GetCityBooks = () => {
     const { authUser } = useAuthContext();
     const { Books, loading } = UseGetBooksForUsersCity();
-    const [search, setSearch] = useState();
-    const BookList = Books;
-    useEffect(() => {
-
-    }, [search])
+    const [search,setSearch] = useState('');
+    
+    let {FilteredBooks} = Books;
+    if(search !== ''){
+        FilteredBooks = Books.filter((c) => c.title.toLowerCase().includes(search.toLowerCase()));
+    }
+    else{
+        FilteredBooks = Books;
+    }
+    if(!FilteredBooks) {
+        FilteredBooks = Books;
+        toast.error("No Books Found! ..")
+    };
+    
     return (
         <>
             <div className='bg-gray-800 py-7'>
@@ -23,11 +33,11 @@ const GetCityBooks = () => {
             </div>
 
             <div className='flex flex-wrap justify-evenly p-5 bg-gray-800'>
-                {!loading && Books.length === 0 && (
+                {!loading && FilteredBooks.length === 0 && (
                     <p className='text-center'>No Books found ...... </p>
                 )}
                 {loading && (<span className='loading loading-spinner mx-auto'></span>)}
-                {!loading && Books.length > 0 && Books.map((book) => (
+                {!loading && FilteredBooks.length > 0 && FilteredBooks.map((book) => (
                     <BookSearch
                         key={book._id}
                         book={book}
