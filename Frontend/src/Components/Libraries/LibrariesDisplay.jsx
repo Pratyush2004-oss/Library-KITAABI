@@ -7,7 +7,7 @@ const LibrariesDisplay = ({ Libraries }) => {
     const isSelected = selectedLibrary?._id === Libraries._id;
 
     return (
-        <div className={`${isSelected ? "bg-gray-800" : ""}`}>
+        <div className={`${isSelected ? "bg-gray-800" : ""} mt-0`}>
             <div className="card card-side bg-base-100 m-5 shadow-xl">
                 <figure><img src={Libraries.ProfilePic} alt="" className=' h-80' /></figure>
                 <div className={`card-body`}>

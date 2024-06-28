@@ -11,7 +11,7 @@ const HomePageDistributor = () => {
         <h1 className='text-7xl font-semibold text-center mb-3 text-gray-300'>Libraries in your City</h1>
         <progress className="progress w-100 progress-gray" value="100" max="100"></progress>
       </div>
-      <div className='flex flex-wrap justify-evenly p-5 bg-gray-800'>
+      <div className='flex flex-wrap items-start justify-evenly p-5 bg-gray-800'>
         {Libraries.map((Libraries) => (
           <LibrariesDisplay
             key={Libraries._id}

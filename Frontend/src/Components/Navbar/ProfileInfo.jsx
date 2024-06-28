@@ -9,7 +9,6 @@ const ProfileInfo = () => {
 
   return (
     <div className="flex-none mx-5 px-5 gap-5">
-
       <div className=" flex-col items-center dropdown-hover dropdown dropdown-end flex-1">
         <div tabIndex={0} role="button" className="btn mx-3 my-1 btn-ghost btn-circle avatar">
           <div className="w-20 items-center rounded-full ring ring-white ring-offset-base-100 ring-offset-2">
