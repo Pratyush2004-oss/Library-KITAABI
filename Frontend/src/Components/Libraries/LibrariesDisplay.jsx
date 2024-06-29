@@ -8,7 +8,7 @@ const LibrariesDisplay = ({ Libraries }) => {
 
     return (
         <div className={`${isSelected ? "bg-gray-800" : ""} mt-0`}>
-            <div className="card sm:card-side bg-base-100 my-5 mx-auto sm:max-2xl:w-[600px] 2xl:w-[700px] shadow-xl">
+            <div className="card sm:card-side bg-base-100 my-5 mx-auto sm:max-2xl:w-[600px] 2xl:w-[700px] shadow-xl hover:scale-105">
                 <figure><img src={Libraries.ProfilePic} alt="" className='sm:w-72'/></figure>
                 <div className={`card-body`}>
                     <h2 className={`card-title text-4xl font-bold`}>
