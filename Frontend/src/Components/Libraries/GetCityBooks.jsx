@@ -12,7 +12,7 @@ const GetCityBooks = () => {
     
     let {FilteredBooks} = Books;
     if(search !== ''){
-        FilteredBooks = Books.filter((c) => c.title.toLowerCase().includes(search.toLowerCase()));
+        FilteredBooks = Books.filter((c) => c.title.toLowerCase().includes(search.toLowerCase()) ||c.author.toLowerCase().includes(search.toLowerCase()));
     }
     else{
         FilteredBooks = Books;

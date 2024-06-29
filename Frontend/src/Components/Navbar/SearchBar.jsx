@@ -8,7 +8,7 @@ const SearchBar = ({onSearchInput}) => {
             <label className='p-8 input input-bordered flex rounded-full items-center gap-2'>
                 <input
                     type="text"
-                    placeholder="Search the Book"
+                    placeholder="Search the Book by Title or Author"
                     className="grow"
                     onChange={(e) => onSearchInput(e.target.value)}
                 />
