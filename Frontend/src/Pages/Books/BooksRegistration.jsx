@@ -92,7 +92,8 @@ const BooksRegistration = () => {
                         </div>
                         <div className="justify-center flex my-4 mt-8 ">
                             <button className="btn btn-outline btn-block btn-success text-xl">
-                                Register your Book
+                            {loading ? <span className='loading loading-dots'></span>: <span>Register your Book</span>}
+                                
                             </button>
                         </div>
                     </form>

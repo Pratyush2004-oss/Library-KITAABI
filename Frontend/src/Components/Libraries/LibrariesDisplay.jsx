@@ -8,13 +8,13 @@ const LibrariesDisplay = ({ Libraries }) => {
 
     return (
         <div className={`${isSelected ? "bg-gray-800" : ""} mt-0`}>
-            <div className="card card-side bg-base-100 m-5 shadow-xl">
-                <figure><img src={Libraries.ProfilePic} alt="" className=' h-80' /></figure>
+            <div className="card sm:card-side bg-base-100 my-5 mx-auto sm:max-2xl:w-[600px] 2xl:w-[700px] shadow-xl">
+                <figure><img src={Libraries.ProfilePic} alt="" className='sm:w-72'/></figure>
                 <div className={`card-body`}>
-                    <h2 className={`card-title font-bold text-2xl`}>
+                    <h2 className={`card-title text-4xl font-bold`}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-7 w-7" fill="lightblue"><path d="M2 19V8H1V6H4V4C4 3.44772 4.44772 3 5 3H19C19.5523 3 20 3.44772 20 4V6H23V8H22V19H23V21H1V19H2ZM13 19V12H11V19H13ZM8 19V12H6V19H8ZM18 19V12H16V19H18ZM6 5V6H18V5H6Z"></path></svg>
                         {Libraries.LibraryName}</h2>
-                    <p>{"Library Address : " + Libraries.Address}</p>
+                    <p>{"Address : " + Libraries.Address}</p>
                     <p>{"City : " + Libraries.City.charAt(0).toUpperCase() + Libraries.City.slice(1)}</p>
                     <p>{"Contact Number : " + Libraries.Mobile}</p>
                     <p>{"Mail : " + Libraries.email}</p>

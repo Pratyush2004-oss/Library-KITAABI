@@ -3,7 +3,6 @@ import BookSearch from './BookSeearch';
 import UseGetBooksForUsersCity from '../../Hooks/UseGetBooksForUsersCity';
 import { useAuthContext } from '../../Context/AuthContext';
 import SearchBar from '../Navbar/SearchBar';
-import toast from 'react-hot-toast';
 
 const GetCityBooks = () => {
     const { authUser } = useAuthContext();
@@ -19,7 +18,6 @@ const GetCityBooks = () => {
     }
     if(!FilteredBooks) {
         FilteredBooks = Books;
-        toast.error("No Books Found! ..")
     };
     
     return (
@@ -32,9 +30,9 @@ const GetCityBooks = () => {
                 <SearchBar onSearchInput={(e) => setSearch(e)} />
             </div>
 
-            <div className='flex flex-wrap justify-evenly p-5 bg-gray-800'>
+            <div className='grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 p-5 bg-gray-800'>
                 {!loading && FilteredBooks.length === 0 && (
-                    <p className='text-center'>No Books found ...... </p>
+                    <p className='text-3xl font-bold text-red-500 text-center'>No Books found ...... </p>
                 )}
                 {loading && (<span className='loading loading-spinner mx-auto'></span>)}
                 {!loading && FilteredBooks.length > 0 && FilteredBooks.map((book) => (

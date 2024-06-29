@@ -2,7 +2,7 @@ import React from 'react'
 
 const Book = ({ book }) => {
     return (
-        <div className="card m-5 w-96 bg-base-100 shadow-xl">
+        <div className="card my-5 mx-auto w-96 bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
                 <img src={"https://th.bing.com/th/id/OIP.s6qkxOqsGKB_7JnvbKujWAHaE2?rs=1&pid=ImgDetMain"} alt="" className="rounded-xl" />
             </figure>

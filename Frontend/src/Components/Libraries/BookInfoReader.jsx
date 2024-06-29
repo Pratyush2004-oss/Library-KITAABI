@@ -12,7 +12,7 @@ const BookInfoReader = () => {
                 <h1 className='text-7xl font-semibold text-center mb-3 text-gray-300'>{selectedLibrary.LibraryName} <span className='text-xl'>({selectedLibrary.Address})</span></h1>
                 <progress className="progress w-100 progress-gray" value="100" max="100"></progress>
             </div>
-            <div className='flex flex-wrap justify-evenly p-5 bg-gray-800'>
+            <div className='grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 p-5 bg-gray-800'>
                 {selectedLibrary &&
                     <>
                         {!loading && Books.length === 0 && (
