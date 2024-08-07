@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div>
-      <div className='h-screen'>
+      <div className='min-h-screen'>
         <Navbar />
         <Routes>
           <Route path='/HomeReader' element={authUser ? ((authUser.LoginType === "Reader") ? <HomePageReader /> : <Navigate to={"/HomeDistributor"} />) : <Navigate to={"/"} />} />
